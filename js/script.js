@@ -17,23 +17,26 @@ function startGame(){
     for (let i = 0; i < gameNumbersQuantity; i++){
         const userNumber = parseInt( prompt ('Dimmi un numero se te lo ricordi'));
         userNumberArray.push(userNumber);
-        console.log(userNumberArray)
+        
     }
-    // const guessNumbers = userNumberArray.filter((singleRandomNumber)=>{
-    //     return randomNumbers.includes(singleRandomNumber) && !guessNumbers.includes(singleRandomNumber);
-    // });
+
+    console.log(userNumberArray);
 
     const guessNumbers = [];
+    const wrongNumbers = [];
 
     userNumberArray.forEach((singleRandomNumber) => {
-        if(guessNumbers.push(singleRandomNumber) && !guessNumbers.includes(singleRandomNumber)){
+        if(randomNumbers.includes(singleRandomNumber) && !guessNumbers.includes(singleRandomNumber)){
             guessNumbers.push(singleRandomNumber);
+        } else{
+            wrongNumbers.push(singleRandomNumber);
         }
     })
 
-    console.log(guessNumbers)
+    console.log(guessNumbers);
+    console.log(wrongNumbers);
 
-    if(guessNumbers.length === 1){
+    if(!guessNumbers.length === 1){
         alert(`caro utente hai azzeccato ${guessNumbers.length} numero. Il numero é: ${guessNumbers}`)
     } else {
         alert(`Caro utente hai azzeccato ${guessNumbers.length} numeri. I numeri sono: ${guessNumbers}`)
@@ -58,8 +61,6 @@ function getRandomNumbersArray (numberOfItems){
     return numbersArray;
     
 }
-
-
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
